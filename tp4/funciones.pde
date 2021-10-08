@@ -1,15 +1,19 @@
-void titulo() {
+void titulo(){
   rectMode(CORNER);
   ubicacionYe =random(height);
   ubicacionXe = random(width);
-  colorr= random(5);
+
+     for(int i=0; i<=20; i++){
+       colorr= random(5);
      tam = round(random(5));
      //color
      fill(r,g,b);
      r=round(random(171,230));
      g=round(random(224,230));
      b=round(random(176,230));
-     ellipse(ubicacionXe, ubicacionYe,tam, tam );
+     
+  ellipse(ubicacionXe, ubicacionYe,tam, tam );
+}
      
    textAlign(CENTER);
    cohete= loadImage ("cohete.png");
@@ -23,6 +27,7 @@ void titulo() {
     image(cohete,ubicacionX, ubicacionY, ancho, alto);
     
        fill(255); 
+       textSize(20);
   text("La tercer expedicion \n a Marte",  width/4, height/4);
   
   rectMode(CENTER);
@@ -31,13 +36,14 @@ void titulo() {
   rect(width-100-70,height-100,70,40,20);
         fill(23, 16, 54);
     text("avanzar", width-100-70,height-100);
-  };
+  }
   
   void historia( int pantalla){
+    textSize(15);
     int ubicacionXcohete, ubicacionYcohete, anchoC, altoC;
     if (pantalla==0){
        titulo() ;}
-       else  if (pantalla==1){
+    else  if (pantalla==1){
     background(23, 16, 54);
     tierra= loadImage ("tierra.png");
     imageMode(CENTER);
@@ -50,127 +56,182 @@ void titulo() {
     altoC= anchoC+anchoC/2 +frameCount/3;
     image(cohete,ubicacionXcohete,ubicacionYcohete, anchoC, altoC);
     fill(255);
-    text("Una tripulacion con 15 astronautas\n parte rumbo a Marte",  width/4, height/4);
+    text(lines[0],  width/4, height/4);
     
     boton();
   }
   else if (pantalla==2){
       imagen(1);
   
-    text("El oxigeno es respirable \n Las casas son similares a la tierra  ",  width/4, height/4);
+    text(lines[1] ,  width/4, height/6,5);
   
     boton();
   }
   else if (pantalla==3){
     imagen(2);
-    text("\n John y Jose acompañenme a recorrer la zona Ustedes quedense aca  ",  width/4, height/4);
+    
+    globo(width/2,height/4, width/3,height/6);
+    text(lines[2],  width/2, height/4.5);
     
     boton();
   }
     else if (pantalla==4){
       imagen(3);
-    text("Mira Capitan es esa casa vive una    señora \n Toca timbre vamos a hablar con ella \n ¿Capitan no cree que estamos en la tierra?",  width/4, height/4);
+        globo(width/2.2,height/7, width/4,height/7);
+    text(lines[3],  width/2.2,height/7.5);
+      globo((width/4)*3,height/5, width/3,height/7);
+    text(lines[4],  (width/4)*3, height/5);
+      globo((width/7)*6,height/3, width/4,height/7);
+    text(lines[5],  (width/7)*6,height/3);
     difurcaciones();
 
   }
   //marte
   else if (pantalla==5){
       imagen(4);
-    text("Hola señora quiesieramos saber como llego \n  Sale el Marido Vinimos en La primer expedición hace 40 años  \n pasan largo tiempo charlando con la pareja se despiden",  width/4, height/4);
+     globo(width/1.3,height/2.6, width/3,height/6); 
+    text(lines[6],  width/1.3, height/2.8);
+    
+    text(lines[7],  width/1.3,height/2.0);
+     globo(width/2.1,height/2, width/4,height/7);
+    text(lines[8],  width/2.1, height/2);
+    text(lines[9],  width/1.3, height/1.5);
 boton();
     
   }
   else if (pantalla==6){
       imagen(5);
-    text("Salen se encuentran con un cartero \n Conversan un largo tiempo mientras conversan cuenta que su abuelo",  width/4, height/4);
+    text(lines[10],  width/5, height/8);
     boton();
     
   }
   else if (pantalla==7){
       imagen(6);
-    text("Capitan: Como que vino su abuelo  \n si la primer expedicion fue hace 40 años y dice que su abuelo vino a los 20 años y el ya tiene 50",  width/4, height/4);
+    text(lines[11],  width/1.3, height/2);
     difurcaciones();
+    lugar[1] = true; 
   }
+  //cielo
     else if (pantalla==8){
        imagen(4);
-    text("¡Hola sos la abuela Tata! ¿Cuanto tiempo? No lo se hijo, Dios nos da otra oportunidad para vivir aca \n El capitan regresa a la nave",  width/4, height/4);
+        globo(width/1.5,height/3, width/4,height/5);
+    text(lines[12],  width/1.5, height/3.2);
+      globo(width/2,height/2, width/3,height/7);
+    text(lines[13],  width/2, height/2);
+    text(lines[14],  width/1.2, height/1.5);
 boton();
     
   }
   else if (pantalla==9){
      imagen(7);
-    text("Mientras tanto en la nave Todos los tripulantes se encuentran con sus familiares \n Me pueden explicar que estan haciendo Desobedecieron las ordenes  \n Pero hermano baja la guardia veni a casa a comer ",  width/4, height/4);
+     
+      text(lines[15],  width/4, height/8);
+     globo(width/4,height/3, width/4,height/5);
+ text(lines[16],  width/4, height/3.2);
+  globo(width/2,height/2, width/4,height/5);
+  text(lines[17],  width/2, height/2);
     boton();
     
   }
   else if (pantalla==10){
      imagen(8);
-    text("Va a comer a casa de su familia charla con sus padres,  \n no recuerda que su madre tuviera esa voz lo cual se plantea   \n si en verdad es su familia y donde esta realmente",  width/4, height/4);
+    text(lines[18],  width/1.3, height/8);
     difurcaciones();
+    lugar[2] = true; 
   }
-    
+    //tierra
     else if (pantalla==11){
        imagen(9);
-    text("¡Hola! ¿Me podria decir que planeta es donde estamos? \n En la tierra donde mas",  width/4, height/4);
+       globo(width/5.2,height/8, width/3,height/7);
+   text(lines[19],  width/5.2, height/8);
+   globo(width/1.8,height/8, width/4,height/8);
+   text(lines[20],  width/1.8, height/8);
 boton();
     
   }
-  else if (pantalla==12){
+  else if (pantalla==12){ //(width/4)*2.5
      imagen(10);
-    text("salen de la casa y ven un almanaque que dice 1977, ven pasar a sus padres de jovenes  ",  width/4, height/4);
+    text(lines[21], (width/4)*3, height/7);
     boton();
-    
   }
   else if (pantalla==13){
      imagen(16);
-    text("Se crusan a la abuela de John que murio en el '66 \n Pero que hace mi abuela si estamos en el 77 ya habia muerto ",  width/4, height/4);
+     
+          globo(width/2.2,height/2, width/3,height/6);
+    text(lines[23],  width/2.2,height/2.1);
+   text(lines[22], (width/4)*3,height/9);
     difurcaciones();
+    lugar[0] = true; 
   }
+  //marte2
     else if (pantalla==14){
-      imagen(11);
-    text("El capitan cree vuelve alarmado a la Nave Le comunica a la tripulacion q han sido hipnotizados",  width/4, height/4);
-    boton();
-    
+     imagen(11);
+     globo(width/2.7,height/7, width/2,height/5);
+   text(lines[24], width/2.7,height/7);
+    lugar[5]=true;
+    rectMode(CENTER);
+     fill(255);
+  rect(width-100-70,height-100,130,40,20);
+  rect(100,height-100,130,40,20);
+        fill(23, 16, 54);
+    text("si los hipnotizaron", width-100-70,height-100);
+     text("no los hipnotizaron", 100,height-100);
+     
   }
+  
+  //si creen
   else if (pantalla==15){
     imagen(15);
-    text("Ya estan todos en la nave listos para despegar",  width/4, height/4);
+    text(lines[25],  width/4, height/4);
     boton();
   }
     
     else if (pantalla==16){
       imagen(12);
-    text("Llegan a la tierra \n Son la primer nave en regresar \n FIN",  width/4, height/4);
- creditos();
-    
+    text(lines[26],  width/4, height/4);
+    text(lines[32],  width/4, height/3);
+
+    boton(); 
   }
+  
+  //no creen
   else if (pantalla==17){
     imagen(13);
-    text(" Al dia siguiente \n toda la tripulacion murio ",  width/4, height/4);
+    text(lines[27],  width/4, height/4);
     boton();
     
   }
   else if (pantalla==18){
       imagen(14);
-    text("Los marcianos entierran a los tripulantes y se convierten en seres deformes \n FIN",  width/4, height/4);
-     creditos();
+    text(lines[28],  width/4, height/4);
+    text(lines[32],  width/4, height/4);
+     boton();
   }
+  //tierra
      else if (pantalla==19){
-    text("Capitan: Muchachada debemos encontrar la manera de volver al 2000 \n Mañana a primera hora debemos encontrar una estrategia",  width/4, height/4);
-    n= 17;
+      imagen(11); 
+      globo(width/2.7,height/7, width/2,height/5);
+   text(lines[30], width/2.7,height/7);
  boton();
+ lugar[4] = true;
     
   }
+  //cielo
   else if (pantalla==20){
-    text(" Como habran notado muchachos la expedicion fallo\n vayan a disfrutar con su familia  ",  width/4, height/4);
-   n= 17;
+     imagen(11);
+     globo(width/2.7,height/7, width/2,height/5);
+   text(lines[31], width/2.7,height/7);
+ 
     boton();
-    
+    lugar[3] = true;
   }
   
+ else if (pantalla==21){
+   creditos();
+ }
   
 
-  }  
+}  
   
   
   // marte 
@@ -198,26 +259,25 @@ imageMode(CENTER);
   cielo= loadImage ("cielo.png");
   
   ubicacionX =width/4;
-    ubicacionY = height/3;
+    ubicacionY = height/4;
     ancho =90;
     alto = 90;
     fill(23, 16, 54);
     noStroke();
-    image(marte,ubicacionX, ubicacionY*2, ancho, alto);
-    image(cielo,ubicacionX*2, ubicacionY*2, ancho, alto);
-    image(tierra,ubicacionX*3, ubicacionY*2, ancho, alto);
-    text("cielo", ubicacionX*2, ubicacionY*2);
-     text("tierra", ubicacionX*3, ubicacionY*2);
-      text("marte", ubicacionX, ubicacionY*2);
+    image(marte,ubicacionX, ubicacionY*3, ancho, alto);
+    image(cielo,ubicacionX*2, ubicacionY*3, ancho, alto);
+    image(tierra,ubicacionX*3, ubicacionY*3, ancho, alto);
+    text("cielo", ubicacionX*2, ubicacionY*3);
+     text("tierra", ubicacionX*3, ubicacionY*3);
+      text("marte", ubicacionX, ubicacionY*3);
       
 
 } 
 void creditos(){
-  background(23, 16, 54);
-  String[] datos = {"Basado en: \n La tercera expedición \n Ray Bradbury","Realizado por:\n Grassi María \n 88237/7","En la materia: \n Tecnologia Multimedial 1 \n Comisión 1 \n Profesor: Jose Luis Bugiolachi"};
-  text (datos[p], width/2, height/2);
-  if (cont%30==0){
-  p++;}
+  background(0);
+  fill(255);
+  text ("Basado en: \n La tercera expedición \n Ray Bradbury\n Realizado por:\n Grassi María \n 88237/7\n En la materia: \n Tecnologia Multimedial 1 \n Comisión 1 \n Profesor: Jose Luis Bugiolachi", width/2, height/2);
+
   
     rectMode(CENTER);
 
@@ -225,5 +285,12 @@ void creditos(){
   rect(width-100-70,height-100,70,40,20);
         fill(23, 16, 54);
     text("reiniciar", width-100-70,height-100);
+    
 }
   
+void globo( float xg,float yg, float  wg, float hg ){
+  fill(0);
+  ellipse(xg, yg,wg,hg);
+  triangle(xg-wg/2.2, yg + hg/3, xg-wg/3.5, yg , xg-wg/2, yg);
+   fill(255);
+}  
